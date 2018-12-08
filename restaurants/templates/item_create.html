@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Item create{% endblock title %}
+
+{% block content %}
+    
+<br>
+<div class="card">
+  <h5 class="card-header">Item Restaurant</h5>
+  <div class="card-body">
+    <p class="card-text">
+        <form action="{% url 'item-create' %}" method="POST">
+            {% csrf_token %}
+            {{item_obj|crispy}}
+            <input type="submit" value="Create" class="btn btn-outline-success">
+        </form>
+    </p>
+  </div>
+</div>
+{% endblock content %}
