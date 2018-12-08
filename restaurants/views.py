@@ -64,7 +64,7 @@ def restaurant_create(request):
         form = RestaurantForm(request.POST, request.FILES)
         if form.is_valid():
             restaurant=form.save(commit=False)
-            restaurant.owner = request.user
+            Restaurant.owner = request.user
             restaurant.save()
             return redirect('restaurant-list')
     context = {
